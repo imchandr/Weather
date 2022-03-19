@@ -1,0 +1,37 @@
+{% extends 'weather/weather.html' %}
+{% load humanize %} 
+{% block contents %}
+
+
+<!-- city weather predections area -->
+<section class="py-12 sm:py-16 bg-white">
+    <div class="max-w-7xl px-10 mx-auto sm:text-center">
+        
+        <h2 class="font-bold text-3xl sm:text-4xl lg:text-5xl mt-3">{{city.name}}</h2>
+        <p class="mt-4 text-gray-500 text-base sm:text-xl lg:text-2xl">4 Day's Weather Forcast</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 my-12 sm:my-16">
+            {% for date, day, dt, nt, des, icon in data|slice:":4" %}
+            
+            
+            <div class="rounded-lg py-10 flex flex-col items-center justify-center shadow-lg border border-gray-100">
+                <p class="text-2xl font-bold mt-4">{{day}}</p>
+                
+                <p class="font-bold mt-4">{{date|naturalday}}</p>
+                
+                
+                <p class="text-4xl font-bold mt-4">{{dt}}°C</p>
+                <p class="font-bold mt-4">{{nt}}°C</p>
+                <img src="http://openweathermap.org/img/w/{{ icon }}.png" alt="weather-icon" class='w-16 h-16'>
+                <p class="font-bold mt-4">{{des}}</p>
+                
+            </div>
+            
+            {% endfor %}
+           
+            
+        </div>
+        <a href=" {% url 'city_weather_list' %} " class="px-4 py-2 sm:w-auto w-full text-center text-base font-medium inline-block rounded text-white hover:bg-blue-600 bg-blue-500">Back</a>
+    </div>
+</section>
+
+{% endblock contents %}
