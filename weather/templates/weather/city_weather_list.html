@@ -39,8 +39,8 @@
                 {% for city_weather in weather_data  %}
                 
                 <a href=" {% url 'city_weather_details_api' city_weather.city %} ">
-                    <span class="title">{{ city_weather.city.name}} api {{ city_weather.city.id}}</span>
-                </a>
+                    {{ city_weather.city.name}} api 
+               </a>
                     <div class="box">
                         <article class="media">
                                     <div class="media-left">
@@ -67,8 +67,12 @@
                                         <a href="{% url 'delete_city' city_weather.city %}"><button class="delete"></button></a>
                                     </div>
                         </article>
+                        <div class="media-right">
+                            
+                            
+                        </div>
+                        
                     </div>
-                    
                 {% endfor %}
                 </div>
             </div>

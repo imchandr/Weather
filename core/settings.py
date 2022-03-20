@@ -15,7 +15,8 @@ SECRET_KEY = 'django-insecure-ej&o4tyd)11+348rc5_1)jkw!$c&sqrm^s)okkb+x+6$mdz(5a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
     
     #third-party apps
     'rest_framework',
+    'corsheaders',
     
     #weather projects apps
     'weather',
@@ -45,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
