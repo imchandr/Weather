@@ -39,7 +39,7 @@
                 {% for city_weather in weather_data  %}
                 
                 <a href=" {% url 'city_weather_details_api' city_weather.city %} ">
-                    <span class="title">{{ city_weather.city}} api</span>
+                    <span class="title">{{ city_weather.city.name}} api {{ city_weather.city.id}}</span>
                 </a>
                     <div class="box">
                         <article class="media">

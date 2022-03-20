@@ -7,6 +7,7 @@ export default function App() {
   const [places, setPlaces] = useState({});
   const [placesAdded, setPlacesToAdd] = useState([]);
   const [weatherData, setWeatherdata] = useState([]);
+  const [activePlace, setActivePlace] = useState('');
 
   useEffect(() => {
     fetchPlaces();
@@ -19,6 +20,7 @@ export default function App() {
   };
 
   const fetchWeatherDetails = (place) => {
+    setActivePlace(place)
     axios
       .get(`https://opnweather-api.herokuapp.com/weather/api/${place}`)
       .then((response) => {
@@ -72,14 +74,14 @@ export default function App() {
             </div>
           </div>
         </div>
-        <div style={{ marginTop: "5%" }}>4 Day Forecast</div>
+        <div style={{ marginTop: "5%" }}>4 Day Forecast {activePlace} </div>
         <div style={{ width: "100%", display: "flex", overflowX: "auto" }}>
           {weatherData.map((item) => {
             return (
               <div className="data">
                 <h4>{item.date}</h4>
                 <h4>{item.day}</h4>
-                <h4>{item.dt}</h4>
+                <h4>{item.dt} °C</h4>
                 <h4>{item.desc}</h4>
               </div>
             );

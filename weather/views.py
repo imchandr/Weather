@@ -58,7 +58,7 @@ def home_page(request):
         r = requests.get(url.format(city)).json()
         print('\n\n r data', r)
         city_weather  = {
-            'city' : city.name,
+            'city' : city,
             'temperature' : r['main']['temp'],
             'description' : r['weather'][0]['description'],
             'icon' : r['weather'][0]['icon'],
