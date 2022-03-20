@@ -9,6 +9,7 @@ djangorestframework = "*"
 requests = "*"
 pyopenssl = "*"
 django-on-heroku = "*"
+gunicorn = "*"
 
 [dev-packages]
 
