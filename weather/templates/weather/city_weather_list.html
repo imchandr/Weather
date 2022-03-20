@@ -38,6 +38,9 @@
             <div class="column is-offset-4 is-4">
                 {% for city_weather in weather_data  %}
                 
+                <a href=" {% url 'city_weather_details_api' city_weather.city %} ">
+                    <span class="title">{{ city_weather.city}} api</span>
+                </a>
                     <div class="box">
                         <article class="media">
                                     <div class="media-left">
@@ -48,6 +51,8 @@
                                     <div class="media-content">
                                         <div class="content">
                                             <p>
+                                                
+
                                                 <a href=" {% url 'city_weather_details' city_weather.city %}">
                                                 <span class="title">{{ city_weather.city }}</span>
                                                 </a>
